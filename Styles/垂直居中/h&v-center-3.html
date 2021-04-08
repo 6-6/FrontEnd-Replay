@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>利用定位+transform</title>
+    <style>
+        .parent{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+        }
+        .child{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>利用定位+transform</h1>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>
