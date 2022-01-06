@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>link引入样式</title>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    window.onload = function(){
+      //可以通过js操作DOM动态引入样式
+      setTimeout(function(){
+        let head = document.getElementsByTagName('head')[0];
+        let linkEle = document.createElement('link');
+
+        linkEle.rel = 'stylesheet';
+        linkEle.href = './style.css';
+        head.appendChild(linkEle);
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

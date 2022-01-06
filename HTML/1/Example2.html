@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@import引入样式</title>
+  <style>
+    /*@import有多种写法，以下虽然我@import了两次，但实际上浏览器只会引入一次*/
+    @import url(./style.css);
+    @import './style.css';
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

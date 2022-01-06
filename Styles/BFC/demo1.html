@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC案例-margin重叠</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            margin: 30px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>BFC案例-margin重叠</h1>
+    <p>我们可以发现.box1和.box2的margin重叠了，这是因为这两个元素处在一个BFC当中。</p>
+    <p class="box box1">Box 1</p>
+    <p class="box box2">Box 2</p>
+</body>
+</html>
