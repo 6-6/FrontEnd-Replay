@@ -14,17 +14,28 @@
         .box{
             width: 200px;
             height: 200px;
-            text-align: center;
             margin: 30px;
             background: yellow;
+        }
+        .outer_box1{
+          display: flex;
         }
     </style>
 </head>
 <body>
-
     <h1>BFC案例-margin重叠</h1>
-    <p>我们可以发现.box1和.box2的margin重叠了，这是因为这两个元素处在一个BFC当中。</p>
-    <p class="box box1">Box 1</p>
-    <p class="box box2">Box 2</p>
+    <p>我们可以发现box1和box2的margin重叠了，这种行为称为<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing">边距折叠</a>。</p>
+    <p>
+      为什么会发生边距折叠（<a href="http://blog.doyoe.com/2013/12/04/css/margin%E7%B3%BB%E5%88%97%E4%B9%8B%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0/">margin系列之外边距折叠
+      </a>），已知BFC的作用是创建一个独立的布局环境，那么我们可以创建独立的BFC布局环境，让box1和box2互不影响即可。
+    </p>
+    <p>
+      在外层定义一个div.outer_box1，还记得如何创建BFC吗？有很多种方式，这里使用display: flex; 尝试一下用其它的方式来触发BFC
+    </p>
+
+    <div class="outer_box1">
+      <p class="box box1">box1</p>
+    </div>
+    <p class="box box2">box2</p>
 </body>
 </html>
