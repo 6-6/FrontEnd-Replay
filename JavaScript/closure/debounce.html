@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的运用-防抖函数</title>
+</head>
+<body>
+    <ol>
+        <li>自定义一个防抖函数，名字叫debounce，有两个参数：fn和delay</li>
+        <li></li>
+        <li></li>
+    </ol>
+    <button type="button" id="submit">提交文章</button>
+    <p id="message"></p>
+    <script>
+        this.realName = '路飞'; 
+        /*
+        （防抖函数）
+        使用场景：可以想象一个人点击按钮的时候，手抖点击了两次，他的本意只想执行一次操作。
+        函数的作用：所以我们需要一个函数，用户在我们规定的时间内（小于delay）操作多次，只执行一次。
+        @params {Function} fn 需要进行防抖处理的函数
+        @params {Number} delay 
+        */
+        function debounce(fn, delay = 300){
+            let timer;
+            return function(){
+                const args = arguments;
+                console.log(timer);
+                if(timer){
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(()=>{
+                    fn.apply(this, args);
+                }, delay);
+            }
+        }
+
+        function submitPost(postname){
+            console.log(this.realName);
+            let message = document.getElementById('message');
+            message.innerHTML += postname + '提交成功！';
+        }
+
+        document.getElementById('submit').addEventListener('click', function(){
+            debounce(submitPost)('海贼王的第一天！');
+        });
+    </script>
+</body>
+</html>

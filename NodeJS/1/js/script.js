@@ -1,5 +1,6 @@
-function test() {
-  return '123'
+let person = {
+  name: 'James',
+  age: 18    
 }
 
-export default test
+export default person

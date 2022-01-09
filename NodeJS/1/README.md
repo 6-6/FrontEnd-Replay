@@ -1,7 +1,7 @@
 ## 问题：import 和 require 导入的区别？
 
 ## 解答：
-这两个都是为了JS模块化编程使用.
+这两个都是为了JS模块化编程使用。这里要注意Vue-cli框架中require是基于nodejs的，采用的是Commonjs，而requireJS这是AMD规范。这两者的是不同的，可以看这篇文章：[nodejs的require语句，区别于requirejs](https://blog.csdn.net/yue7603835/article/details/54233567?locationNum=2&fps=1)。
 
 **遵循规范**
 * require 是 AMD规范引入方式
@@ -30,6 +30,11 @@ exports.fs = fs
 module.exports = fs
 ```
 
+1. 通过require引入基础数据类型时，属于复制该变量。
+2. 通过require引入复杂数据类型时，数据浅拷贝该对象。
+3. 出现模块之间的循环引用时，会输出已经执行的模块，而未执行的模块不输出（比较复杂）
+4. CommonJS模块默认export的是一个对象，即使导出的是基础数据类型
+
 import / export：
 遵循 ES6 规范，支持编译时静态分析，便于JS引入宏和类型检验。动态绑定。
 写法就比较多种多样：
@@ -49,15 +54,10 @@ export {readFile, read}
 export * from 'fs'
 ```
 
-1. 通过require引入基础数据类型时，属于复制该变量。
-2. 通过require引入复杂数据类型时，数据浅拷贝该对象。
-3. 出现模块之间的循环引用时，会输出已经执行的模块，而未执行的模块不输出（比较复杂）
-4. CommonJS模块默认export的是一个对象，即使导出的是基础数据类型
-
 ## 示例：
 * [import导入](./importExample1.html)
-* [require基础导入](./requireExample1.html)
-* [require导入配置依赖模块](./requireExample1.html)
+* [requireJS基础导入](./requireExample1.html)
+* [requireJS导入配置依赖模块](./requireExample1.html)
 
 关于require参考：
 * https://requirejs.org/
