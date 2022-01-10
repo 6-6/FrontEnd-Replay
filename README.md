@@ -4,6 +4,7 @@
 ## 面试题
 * [前端面试每日3+1](http://www.h-camel.com/)
 * [Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md)
+* [最新的前端大厂面经（详解答案）](https://juejin.cn/post/7004638318843412493?share_token=f65e6692-0418-455d-b985-35a4301e8ea7)
 
 ## 架构设计
 * (掌握设计原则，你就是光！（这 25 个问题，你会几个？）)[https://mp.weixin.qq.com/s/zlnv4r3neW1SSghznHOBig]

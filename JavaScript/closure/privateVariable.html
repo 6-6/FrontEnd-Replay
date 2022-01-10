@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闭包的运用-私有变量</title>
+</head>
+<body>
+  <script>
+    var person = (function(){
+      var a = 1;
+      
+      function age(){
+        return a;
+      }
+
+      return{
+        countAge: age
+      }
+    })();
+
+    //直接获取a的数据，我们要不到，相当于私有化变量
+    console.log(person.a);
+    //可以通过调用内部的函数，返回一个结果
+    console.log(person.countAge());
+  </script>
+</body>
+</html>
