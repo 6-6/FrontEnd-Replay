@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let和var的作用域</title>
+</head>
+<body>
+  <p>
+    分别用let和var声明了两个变量。然后在代码块之外调用这两个变量，结果let声明的变量报错，var声明的变量返回了正确的值。这表明，let声明的变量只在它所在的代码块有效。
+  </p>
+  <script>
+    if(true){
+      let a = 10;
+      var b = 1;
+    }
+
+    console.log(a); // Uncaught ReferenceError: a is not defined.
+    console.log(b) // 1
+  </script>
+</body>
+</html>

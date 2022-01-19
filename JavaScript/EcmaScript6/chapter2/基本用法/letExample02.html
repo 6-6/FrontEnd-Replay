@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let声明变量在for循环当中</title>
+</head>
+<body>
+  <p>上面代码中，变量i只在for循环体内有效，在循环体外引用就会报错。</p>
+  <script>
+    for (let i = 0; i < 10; i++) {
+      console.log('for循环当中的i： ', i);
+    }
+
+    console.log('全局变量当中的i： ',i);
+  </script>
+</body>
+</html>

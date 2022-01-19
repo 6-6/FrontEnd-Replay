@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>var声明变量在for循环当中</title>
+</head>
+<body>
+  <p>变量i是全局变量，所以在函数内部的console.log(i)，指向的就是全局的i。</p>
+  <script>
+    var a = [];
+    for(var i = 0; i < 10; i++){
+      a[i] = function(){
+        //首先会查找匿名函数当中是否存在变量i，匿名函数中不存在该值
+        //查找上级for循环体中，此时for循环早已经结束，i的值为循环的最终结果10
+        console.log(i);
+      }
+    }
+    
+    //调用数组a当中的匿名函数
+    a[6]();
+  </script>
+</body>
+</html>

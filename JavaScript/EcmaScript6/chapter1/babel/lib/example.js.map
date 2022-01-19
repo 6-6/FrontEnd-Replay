@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/example.js"],"names":["fn"],"mappings":";;AAAA,IAAMA,EAAE,GAAG,SAALA,EAAK;AAAA,SAAM,CAAN;AAAA,CAAX","sourcesContent":["const fn = () => 1;\r\n"],"file":"example.js"}
