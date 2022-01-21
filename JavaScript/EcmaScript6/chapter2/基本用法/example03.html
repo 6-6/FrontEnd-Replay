@@ -11,14 +11,15 @@
   <script>
     var a = [];
     for(var i = 0; i < 10; i++){
+      console.log('for循环中的i： ', i);
       a[i] = function(){
         //首先会查找匿名函数当中是否存在变量i，匿名函数中不存在该值
-        //查找上级for循环体中，此时for循环早已经结束，i的值为循环的最终结果10
-        console.log(i);
+        //查找上级for循环体中，for循环中的变量i是全局变量，所以结果就是10
+        console.log('for循环中匿名函数的i： ', i);
       }
     }
     
-    //调用数组a当中的匿名函数
+    //调用数组a索引6当中的匿名函数（注意这时候for循环已经结束了）
     a[6]();
   </script>
 </body>

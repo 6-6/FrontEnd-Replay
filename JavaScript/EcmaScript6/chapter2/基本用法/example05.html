@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for循环存在父子作用域</title>
+</head>
+<body>
+  <p>for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。  </p>
+  <script>
+    //我们知道let变量不可以重复声明，以下代码正确运行，说明变量i在不同的作用域
+    for (let i = 0; i < 3; console.log('在for表达式中的i：', i), i++) {
+      let i = 'abc';
+      console.log('在for循环体中的i：', i);
+    }
+    // abc
+    // abc
+    // abc
+  </script>
+</body>
+</html>

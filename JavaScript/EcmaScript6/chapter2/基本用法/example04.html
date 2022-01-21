@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let声明变量在for循环当中</title>
+</head>
+<body>
+  <h1>问题清单：</h1>
+  <ol>
+    <li>
+      <p>问题：已知for循环let变量i只在块级作用域生效，那么i每次循环迭代的时候不是应该为0吗？因为i++必须传递到下一个迭代当中，变量i的值才会有变化。</p>
+      <p>解答：let的变量每次循环执行建立新的词法环境(LexicalEnvironment)，拷贝所有的变量名称与值到下个循环执行。</p>    
+    </li>
+    <li>
+      <p>问题：理论上都解释的通，但是疑问还是有的，为什么for循环结束后匿名函数还可以通过作用域链访问到变量i？</p>
+      <p>解答：我知道因为存在引用，垃圾回收并不会马上清理掉变量，但是原理还是一知半解。关于这些会再开设新专题提到</p>
+    </li>
+  </ol>
+
+  <h1>参考：</h1>
+  <ol>
+    <li>
+      <a href="https://www.zhihu.com/question/33468703">js关于for循环中的闭包问题？</a>
+    </li>
+    <li>
+      <a href="https://www.cnblogs.com/ZinCode/p/5551907.html">JS中for循环里面的闭包问题的原因及解决办法</a>
+    </li>
+    <li>
+      <a href="https://segmentfault.com/q/1010000007541743">怎么理解for循环中用let声明的迭代变量每次是新的变量？</a>
+    </li>
+  </ol>
+  <p>TODO: 开设问题：《JS中for循环里面的闭包问题的原因及解决办法？》</p>
+  <script>
+    var a = [];
+
+    for (let i = 0; i < 10; i++) {
+      //首先会查找匿名函数当中是否存在变量i，匿名函数中不存在该值
+      //查找上级for循环体中，每次循环let的变量i都是全新的值，所以匿名函数中console.log(i)可以和for循环中的i同步
+      a[i] = function () {
+        console.log(i);
+      };
+    }
+
+    //调用数组a索引6当中的匿名函数（注意这时候for循环已经结束了）
+    a[6](); // 6
+  </script>
+</body>
+</html>

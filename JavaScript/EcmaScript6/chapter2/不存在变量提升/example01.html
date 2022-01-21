@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>闭包保存for循环i的引用</title>
+  <title>let不存在变量提升</title>
 </head>
 <body>
   <script>
-    var a = [];
-    for (let i = 0; i < 10; i=i+1) {
-      a[i] = function () {
-        console.log(i);
-      };
-    }
-    a[6](); // 6
+    // var 的情况
+    console.log(foo); // 输出undefined
+    var foo = 2;
+
+    // let 的情况
+    console.log(bar); // 报错ReferenceError
+    let bar = 2;
   </script>
 </body>
 </html>
