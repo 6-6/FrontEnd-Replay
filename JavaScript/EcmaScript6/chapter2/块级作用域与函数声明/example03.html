@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>变量声明在块级作用域必须要大括号</title>
+</head>
+<body>
+  <script>
+    // 第一种写法，报错
+    // 没有大括号，所以JavaScript引擎会认为不存在块级作用域，let只能出现在当前作用域的顶层，因此会报错。
+    if (true) let x = 1;// Uncaught SyntaxError: Lexical declaration cannot appear in a single-statement context
+
+    // 第二种写法，不报错
+    // if (true) {
+    //   let x = 1;
+    //   console.log(x);
+    // }
+  </script>
+</body>
+</html>

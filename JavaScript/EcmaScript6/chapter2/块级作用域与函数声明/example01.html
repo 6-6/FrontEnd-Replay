@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>es5块级作用域声明函数</title>
+</head>
+<body>
+  <p>浏览器为了兼容性都可以正常运行以下代码，理论上在es5环境中中在块级作用域声明函数是非法的，当然现如今的浏览器多是es6环境了</p>
+  <script>
+    // 情况一
+    if (true) {
+      function f() {
+        console.log('在if表达式中');
+      }
+      f();
+    }
+
+    // 情况二
+    try {
+      function f() {
+        console.log('在try catch中');
+      }
+      f();
+    } catch(e) {
+      // ...
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解决函数内不允许重复声明</title>
+</head>
+<body>
+  <script>
+    // function func1(arg) {
+    //   let arg;
+    // }
+
+    function func2(arg) {
+      //创建一个新的作用域，互不影响即可
+      return function(){
+        let arg;
+      }
+    }
+
+    //func1() // 报错
+    func2() // 不报错
+  </script>
+</body>
+</html>

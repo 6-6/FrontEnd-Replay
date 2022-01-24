@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const命令声明的常量存在块级作用域</title>
+</head>
+<body>
+  <script>
+    if (true) {
+      // const声明的常量同let命令一样存在块级作用域
+      const MAX = 5;
+    }
+
+    console.log(MAX); // Uncaught ReferenceError: MAX is not defined
+  </script>
+</body>
+</html>

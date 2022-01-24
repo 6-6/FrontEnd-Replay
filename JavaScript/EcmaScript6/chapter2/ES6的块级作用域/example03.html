@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>es6块级作用域取代IIFE（立即执行函数表达式）</title>
+</head>
+<body>
+  <script>
+    // IIFE 写法
+    (function () {
+      var tmp = '123';
+    }());
+
+    // 块级作用域写法，一定程度上不需要用传统的IIFE来构建伪作用域了（函数作用域）
+    if(true){
+      let tmp = '123456';
+    }
+
+    // 两者方式都形成了块级作用域，所以无法再外层环境获取到tmp的值
+    console.log(tmp);// Uncaught ReferenceError: tmp is not defined
+  </script>
+</body>
+</html>

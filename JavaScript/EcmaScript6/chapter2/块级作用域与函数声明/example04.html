@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数声明在块级作用域必须要大括号</title>
+</head>
+<body>
+  <script>
+    // // 不报错
+    // 'use strict';
+    // if (true) {
+    //   function f() {}
+    // }
+
+    // 报错 
+    // Uncaught SyntaxError: In strict mode code, functions can only be declared at top level or inside a block.
+    'use strict';
+    if (true)
+      function f() {}
+  </script>
+</body>
+</html>

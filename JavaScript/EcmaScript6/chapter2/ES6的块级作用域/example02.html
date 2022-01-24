@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>块级作用域的任意嵌套</title>
+</head>
+<body>
+  <script>
+    // 嵌套了多级的块级作用域，仍然可以正常运行
+    {{{{
+      let insane = 'Hello Jing!'
+      {
+        let insane = 'Hello World'
+        console.log(insane); // 'Hello World'
+      }
+      console.log(insane); // 'Hello Jing!'
+    }}}};
+  </script>
+</body>
+</html>

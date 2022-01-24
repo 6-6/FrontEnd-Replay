@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const命令声明的常量不可重复声明</title>
+</head>
+<body>
+  <script>
+    var message = "Hello!";
+    let age = 25;
+
+    // 以下两行都会报错
+    const message = "Goodbye!";// Uncaught SyntaxError: Identifier 'message' has already been declared
+    const age = 30;
+  </script>
+</body>
+</html>

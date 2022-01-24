@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>freeze方法冻结const常量对象</title>
+</head>
+<body>
+  <a href="https://github.com/6-6/Professional-JavaScript-for-Web-Developers/tree/3f35a1378e3f0f7b6b1d9c6f8860855959063ce5/chapter22#222-%E9%98%B2%E7%AF%A1%E6%94%B9%E5%AF%B9%E8%B1%A1">第22章 高级技巧 freeze</a>
+  <script>
+    const foo = Object.freeze({});
+
+    // 常规模式时，下面一行不起作用；
+    // 严格模式时，该行会报错
+    foo.prop = 123;
+    console.log(foo);
+  </script>
+</body>
+</html>

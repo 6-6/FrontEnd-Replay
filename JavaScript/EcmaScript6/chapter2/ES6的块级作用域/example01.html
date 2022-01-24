@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let新增了块级作用域</title>
+</head>
+<body>
+  <script>
+    function f1() {
+      let n = 5;
+      if (true) {
+        //它们处在不同的作用域，因此再次声明同名变量不会互相影响
+        let n = 10;
+      }
+      //说明外层作用域的n，没有受到内层作用域的影响
+      console.log(n); // 5
+    }
+
+    f1();
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let声明变量形成暂时性死区</title>
+</head>
+<body>
+  <p>看到这里可以知道let变量的优点：声明变量不会被覆盖、强制标准化写法（在作用域的开头声明）、块级作用域有助于垃圾回收等</p>
+  <script>
+    if (true) {
+      // TDZ开始
+      tmp = 'abc'; // Uncaught ReferenceError: Cannot access 'tmp' before initialization，初始化前无法访问变量tmp
+      console.log(tmp); // Uncaught ReferenceError: Cannot access 'tmp' before initialization
+
+      //屏蔽以上造成错误的代码
+      let tmp; // TDZ结束
+      console.log(tmp); // undefined
+
+      tmp = 123;
+      console.log(tmp); // 123
+    }
+  </script>
+</body>
+</html>

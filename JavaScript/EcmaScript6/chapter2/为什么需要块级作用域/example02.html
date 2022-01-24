@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>没有块级作用域导致的错误2</title>
+</head>
+<body>
+  <script>
+    var s = 'hello';
+
+    for (var i = 0; i < s.length; i++) {
+      console.log(s[i]);
+    }
+
+    // 用来计数的循环变量泄露为全局变量
+    console.log(i); // 5
+  </script>
+</body>
+</html>

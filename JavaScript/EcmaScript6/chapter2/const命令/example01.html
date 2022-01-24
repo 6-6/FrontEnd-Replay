@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const命令声明常量不可更改</title>
+</head>
+<body>
+  <script>
+    const PI = 3.1415;
+    console.log(PI); // 3.1415
+
+    // 既然是常量，当然不能再赋值了
+    PI = 3;
+    // TypeError: Assignment to constant variable.（赋值给了常量)
+  </script>
+</body>
+</html>

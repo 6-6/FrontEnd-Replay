@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暂时性死区影响typeof安全机制</title>
+</head>
+<body>
+  <script>
+    //未声明的变量会导致报错
+    // if(y != "undefined") {
+	  //   console.log("y正确运行");
+    // }
+
+    //typeof有安全防范机制，对于未声明（undeclared）的变量，typeof照样返回“undefined”
+    if(typeof y != "undefined") {
+	    console.log("y正确运行");
+    }
+
+    //但是对于暂时性死区，typeof的安全机制也没法阻止报错
+    console.log(typeof x);// ReferenceError
+    let x;
+
+  </script>
+</body>
+</html>

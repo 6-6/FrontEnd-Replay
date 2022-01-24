@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>freeze方法彻底冻结对象</title>
+</head>
+<body>
+  <script>
+    var constantize = (obj) => {
+      Object.freeze(obj);
+      Object.keys(obj).forEach( (key, i) => {
+        if ( typeof obj[key] === 'object' ) {
+          constantize( obj[key] );
+        }
+      });
+    };
+
+    const foo = {
+      color: 'red'
+    }
+    constantize(foo);
+    foo.name = '兰博基尼';
+    console.log(foo);
+  </script>
+</body>
+</html>

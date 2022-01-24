@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隐蔽的暂时性死区</title>
+</head>
+<body>
+  <script>
+    // 推测是因为函数表达式中不能变量提升，所以x=y会报未声明变量的错误
+    // 这里声明变量是不是等同于let x = y, let y = 2？
+    function bar(x = y, y = 2) {
+      return [x, y];
+    }
+
+    bar(); // 报错
+
+    // 重复声明变量x，的确也报错了 
+    // function bar(y = 2, x = y) {
+    //   let x = 3
+    //   return [x, y];
+    // }
+
+    // bar(); // 报错
+    
+
+    // 以下翻译成es5，并不会报错，观察下因为var变量提升的原因，所以x能够被赋值为undefined
+    //"use strict";
+
+    // function bar() {
+    //   var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : y;
+    //   var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+    //   return [x, y];
+    // }
+
+    // bar(); // 报错
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>块级作用域声明函数是否会变量提升</title>
+</head>
+<body>
+  <p>如今很多现代浏览器已经是ES6浏览器。ES6 规定，块级作用域之中，函数声明语句的行为类似于let，在块级作用域之外不可引用。</p>
+  <script>
+    function f() { console.log('I am outside!'); }
+
+    (function () {
+      if (true) {
+        // 重复声明一次函数f
+        function f() { console.log('I am inside!'); }
+      }
+
+      f();// Uncaught TypeError: f is not a function
+    }());
+  </script>
+</body>
+</html>

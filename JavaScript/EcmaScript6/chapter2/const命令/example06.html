@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const命令声明数组为常量</title>
+</head>
+<body>
+  <script>
+    // const声明数组跟对象一样，只要不将其指向其它的内存地址，只是操作对象本身，那不会报错
+    const a = [];
+    a.push('Hello'); // 可执行
+    console.log(a);
+    a.length = 0;    // 可执行
+    console.log(a);
+    // a = ['Dave'];    // 报错 Uncaught TypeError: Assignment to constant variable.
+  </script>
+</body>
+</html>
