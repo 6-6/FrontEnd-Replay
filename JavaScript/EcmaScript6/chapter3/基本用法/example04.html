@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值必须是可遍历的结构</title>
+</head>
+<body>
+  <script>
+    // 解构赋值必须是可遍历的结构，以下都不可以遍历，报错
+    // let [foo] = 1;
+    // let [foo] = false;
+    // let [foo] = NaN;
+    // let [foo] = undefined;
+    // let [foo] = null;
+
+    // object本身不存在Iterator接口，所以不能够遍历。是因为object是一种非线性的数据结构，哪个属性后遍历是不确定的。参考18章 Iterator 和 for...of 循环
+    //let [foo] = {"0": "1"}; //Uncaught TypeError: {(intermediate value)} is not iterable
+
+    // 这里容易理解错误，认为object就无法解构赋值。如果指定object的值，首先要了解数组和对象的关系，本质上数组就是属性名都是自然数的对象。
+    let {"te": foo} = {"te": "1"};
+    console.log(foo);
+  </script>
+</body>
+</html>

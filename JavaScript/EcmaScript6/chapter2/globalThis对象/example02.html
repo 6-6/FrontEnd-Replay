@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方法二：获取浏览器中全局环境下的顶层对象</title>
+</head>
+<body>
+  <p>JavaScript 语言存在一个顶层对象，它提供全局环境（即全局作用域），所有代码都是在这个环境中运行。但是，顶层对象在各种实现里面是不统一的。所以需要一个通用判断其运行环境的代码：</p> 
+
+  <script>
+    var getGlobal = function(){
+      //ES2020 在语言标准的层面，引入globalThis作为顶层对象，指向全局环境下的this。
+      if(typeof globalThis !== 'undefined') { return globalThis; }
+      //现代浏览器支持ES2020的情况下，以下代码就不必要了，但为了兼容性还是用以下的比较好。
+      if(typeof self !== 'undefined') { return self; }
+      if(typeof window !== 'undefined') { return window; }
+      if(typeof global !== 'undefined') { return global; }
+      throw new Error('获取不到当前环境下的全局对象')
+    }
+
+    console.log(getGlobal());//window对象
+  </script>
+</body>
+</html>

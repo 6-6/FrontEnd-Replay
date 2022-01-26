@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不完全的解构赋值</title>
+</head>
+<body>
+  <script>
+    // 就好比函数传参一样，即使参数多传并不会报错
+    // 分支问题：解构赋值的底层原理是怎么样的？（是否是利用循环变量的值，然后赋值过去）
+    let [x, y] = [1, 2, 3];
+    console.log('x:', x);// 1
+    console.log('y:', y);// 2
+
+    let [a, [b], d] = [1, [2, 3], 4];
+    console.log('a:', a);// 1
+    console.log('b:', b);// 2
+    console.log('d:', d);// 4
+  </script>
+</body>
+</html>
