@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嵌套结构的对象的解构赋值2</title>
+</head>
+<body>
+  上个示例<a href="./对象的解构赋值/example05.html">嵌套结构的对象的解构赋值1</a>p是模式，不是变量，因此不会被赋值。如果p也要作为变量赋值，可以写成下面这样。
+  <script>
+    let obj = {
+      p: [
+        'Hello',
+        { y: 'World' }
+      ]
+    };
+
+    // 这里要分解来看就比较容易
+    // 首先是第一个变量p：let {p: p} = {p: []}; ==> p = ['Hello', {y: 'World'}]
+    // 第二个变量x：匹配模式p ==> let [x] = ['Hello'] ==> x = 'Hello'
+    // 第二个变量x：匹配模式p ==> let {y: y} = {y: 'World'} ==> y = 'World'
+    let { p, p: [x, { y }] } = obj;
+    console.log('p:', p);  // ['Hello', {y: 'World'}]
+    console.log('x:', x);  // 'Hello'
+    console.log('y:', y);  // 'World'
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性名不对应，对象的解构赋值</title>
+</head>
+<body>
+
+  <script>
+    let { foo, bar } = { foo: 'aaa', bar: 'bbb' };
+    console.log('foo:', foo); // "aaa"
+    console.log('bar:', bar); // "bbb"
+
+    // 属性名不一致，解构赋值就无法取到值
+    let { baz } = { foo: 'aaa', bar: 'bbb' };
+    console.log('baz:', baz);  // undefined
+  </script>
+</body>
+</html>

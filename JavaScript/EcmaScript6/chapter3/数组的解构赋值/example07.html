@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值允许指定默认值</title>
+</head>
+<body>
+  <script>
+    // 解构赋值允许指定默认值（跟函数传参很相似）
+    let [foo = true] = [];
+    console.log(foo); // true
+
+    //let [x, y = 'b'] = ['a']; // x='a', y='b'
+    let [x, y = 'b'] = [undefined, undefined];
+
+    // x没有提供默认值
+    console.log('x:' + x); // undefined
+
+    // y提供了默认值，会优先采取默认值
+    console.log('y:' + y); // 'b'
+  </script>
+</body>
+</html>

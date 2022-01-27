@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象的解构赋值</title>
+</head>
+<body>
+  <p>前面提到过<a href="../数组的解构赋值/example04.html">解构赋值必须是可遍历的结构</a>。对象必须指定key值，且key值需相同。</p>
+  
+  <script>
+    let { foo, bar } = { foo: 'aaa', bar: 'bbb' };
+    console.log('foo:', foo); // "aaa"
+    console.log('bar:', bar); // "bbb"
+  </script>
+</body>
+</html>

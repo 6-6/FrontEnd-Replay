@@ -15,10 +15,10 @@
     // let [foo] = undefined;
     // let [foo] = null;
 
-    // object本身不存在Iterator接口，所以不能够遍历。是因为object是一种非线性的数据结构，哪个属性后遍历是不确定的。参考18章 Iterator 和 for...of 循环
+    // object本身不存在Iterator接口，所以不能够遍历。是因为object是一种非线性的数据结构，哪个属性先后遍历是不确定的。参考18章 Iterator 和 for...of 循环
     //let [foo] = {"0": "1"}; //Uncaught TypeError: {(intermediate value)} is not iterable
 
-    // 这里容易理解错误，认为object就无法解构赋值。如果指定object的值，首先要了解数组和对象的关系，本质上数组就是属性名都是自然数的对象。
+    // 这里容易理解错误，认为object就无法解构赋值。本质上数组就是属性名都是自然数的对象。
     let {"te": foo} = {"te": "1"};
     console.log(foo);
   </script>

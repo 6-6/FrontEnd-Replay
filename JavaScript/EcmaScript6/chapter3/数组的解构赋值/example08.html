@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值默认值生效的前提，是参数全等于undefined</title>
+</head>
+<body>
+  <script>
+    // 参数必须严格等于（===）undefined，默认值才会生效
+    let [x1 = 1] = [undefined];
+    console.log(x1); // 1
+
+    // null并不全等于undefined，所以默认值不生效
+    let [x2 = 1] = [null];
+    console.log(x2); // null
+  </script>
+</body>
+</html>

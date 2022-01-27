@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象的解构赋值，变量名和属性名不一致的情况</title>
+</head>
+<body>
+  <script>
+    // 像上个例子出现同名的情况，我们不太好去更改原生方法的名字，但是我们可以更改变量名
+    let { log: logN, sin, cos } = Math;
+
+    // log变量名就可以正常使用了
+    const { log } = console;
+    log(logN(1)) // 0
+  </script>
+</body>
+</html>

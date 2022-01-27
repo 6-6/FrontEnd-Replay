@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象上的方法，结构赋值到变量</title>
+</head>
+<body>
+  <script>
+    // 例一
+    let { log, sin, cos } = Math;
+
+    // 例二
+    // 原示例中会报错，因为这里用了相同的变量名log，所以这个是需要注意的，对象上的方法有可能重名
+    const { log } = console;
+    log('hello') // hello
+  </script>
+</body>
+</html>
