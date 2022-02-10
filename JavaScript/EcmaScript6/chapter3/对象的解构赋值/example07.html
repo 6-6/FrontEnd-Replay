@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嵌套结构的对象的解构赋值3</title>
+</head>
+<body>
+  <script>
+    const node = {
+      loc: {
+        start: {
+          line: 1,
+          column: 5
+        }
+      }
+    };
+
+    // 实际上获取的变量  loc, start, line ，其它只是对应对象结构的“模式”
+    let { loc, loc: { start }, loc: { start: { line }} } = node;
+
+    console.log('line: ', line); // 1
+    console.log('loc: ', loc);  // Object {start: Object}
+    console.log('start: ', start); // Object {line: 1, column: 5}
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # 变量的解构赋值
 
-## 数组的解构赋值
+## 1.数组的解构赋值
 
 ### 基本用法
 ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
@@ -159,7 +159,7 @@ let [x = y, y = 1] = [];     // ReferenceError: y is not defined
 
 上面最后一个表达式之所以会报错，是因为x用y做默认值时，y还没有声明。
 
-## 对象的解构赋值
+## 2.对象的解构赋值
 
 ### 简介
 解构不仅可以用于数组，还可以用于对象。
@@ -254,7 +254,7 @@ p // ["Hello", {y: "World"}]
 ```
 
 下面是另一个例子。
-[嵌套结构的对象的解构赋值3](./对象的解构赋值/example06.html)
+[嵌套结构的对象的解构赋值3](./对象的解构赋值/example07.html)
 ```javascript
 const node = {
   loc: {
@@ -270,12 +270,196 @@ line // 1
 loc  // Object {start: Object}
 start // Object {line: 1, column: 5}
 ```
+上面代码有三次解构赋值，分别是对loc、start、line三个属性的解构赋值。注意，最后一次对line属性的解构赋值之中，只有line是变量，loc和start都是模式，不是变量。
 
+下面是嵌套赋值的例子。
+[嵌套结构的对象的解构赋值4](./对象的解构赋值/example08.html)
+```javascript
+let obj = {};
+let arr = [];
 
-## 字符串的解构赋值
-## 数值和布尔值的解构赋值
-## 函数参数的解构赋值
-## 圆括号问题
-## 用途
+({ foo: obj.prop, bar: arr[0] } = { foo: 123, bar: true });
+
+obj // {prop:123}
+arr // [true]
+```
+
+如果解构模式是嵌套的对象，而且子对象所在的父属性不存在，那么将会报错。
+```javascript
+// 报错
+let {foo: {bar}} = {baz: 'baz'};
+```
+
+上面代码中，等号左边对象的foo属性，对应一个子对象。该子对象的bar属性，解构时会报错。原因很简单，因为foo这时等于undefined，再取子属性就会报错。
+
+注意，对象的解构赋值可以取到继承的属性。
+[解构赋值可以取到继承的属性](./对象的解构赋值/example09.html)
+```javascript
+const obj1 = {};
+const obj2 = { foo: 'bar' };
+Object.setPrototypeOf(obj1, obj2);
+
+const { foo } = obj1;
+foo // "bar"
+```
+
+### 默认值
+
+对象的解构也可以指定默认值。
+```javascript
+var {x = 3} = {};
+x // 3
+
+var {x, y = 5} = {x: 1};
+x // 1
+y // 5
+
+var {x: y = 3} = {};
+y // 3
+
+var {x: y = 3} = {x: 5};
+y // 5
+
+var { message: msg = 'Something went wrong' } = {};
+msg // "Something went wrong"
+```
+
+默认值生效的条件是，对象的属性值严格等于undefined。
+```javascript
+var {x = 3} = {x: undefined};
+x // 3
+
+var {x = 3} = {x: null};
+x // null
+```
+
+上面代码中，属性x等于null，因为null与undefined不严格相等，所以是个有效的赋值，导致默认值3不会生效。
+
+### 注意点
+**（1）如果要将一个已经声明的变量用于解构赋值，必须非常小心。**
+```javascript
+// 错误的写法
+let x;
+{x} = {x: 1};
+// SyntaxError: syntax error
+```
+
+上面代码将整个解构赋值语句，放在一个圆括号里面，就可以正确执行。关于圆括号与解构赋值的关系，参见下文。
+
+**（2）解构赋值允许等号左边的模式之中，不放置任何变量名。因此，可以写出非常古怪的赋值表达式。**
+```javascript
+({} = [true, false]);
+({} = 'abc');
+({} = []);
+```
+
+上面的表达式虽然毫无意义，但是语法是合法的，可以执行。
+
+**（3）由于数组本质是特殊的对象，因此可以对数组进行对象属性的解构。**
+[数组进行对象属性的解构](./对象的解构赋值/example10.html)
+```javascript
+let arr = [1, 2, 3];
+let {0 : first, [arr.length - 1] : last} = arr;
+first // 1
+last // 3
+```
+
+上面代码对数组进行对象解构。数组arr的0键对应的值是1，[arr.length - 1]就是2键，对应的值是3。方括号这种写法，属于“属性名表达式”（参见《对象的扩展》一章）。
+
+## 3.字符串的解构赋值
+字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象。
+[字符串的解构赋值](./字符串的解构赋值/example01.html)
+```javascript
+const [a, b, c, d, e] = 'hello';
+a // "h"
+b // "e"
+c // "l"
+d // "l"
+e // "o"
+```
+
+类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。
+[字符串的解构赋值获取length属性](./字符串的解构赋值/example02.html)
+```javascript
+let {length : len} = 'hello';
+len // 5
+```
+
+## 4.数值和布尔值的解构赋值
+解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。
+[数值和布尔值的解构赋值](./数值和布尔值的解构赋值/example01.html)
+```javascript
+let {toString: s} = 123;
+s === Number.prototype.toString // true
+
+let {toString: s} = true;
+s === Boolean.prototype.toString // true
+```
+
+解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错。
+```javascript
+let { prop: x } = undefined; // TypeError
+let { prop: y } = null; // TypeError
+```
+
+## 5.函数参数的解构赋值
+函数的参数也可以使用解构赋值。
+[函数参数的解构赋值](./函数参数的解构赋值/example01.html)
+```javascript
+function add([x, y]){
+  return x + y;
+}
+
+add([1, 2]); // 3
+```
+
+上面代码中，函数add的参数表面上是一个数组，但在传入参数的那一刻，数组参数就被解构成变量x和y。对于函数内部的代码来说，它们能感受到的参数就是x和y。
+
+下面是另一个例子。
+[map()方法解构赋值](./函数参数的解构赋值/example02.html)
+```javascript
+[[1, 2], [3, 4]].map(([a, b]) => a + b);
+// [ 3, 7 ]
+```
+
+函数参数的解构也可以使用默认值。
+[函数参数的解构使用默认值1](./函数参数的解构赋值/example03.html)
+```javascript
+function move({x = 0, y = 0} = {}) {
+  return [x, y];
+}
+
+move({x: 3, y: 8}); // [3, 8]
+move({x: 3}); // [3, 0]
+move({}); // [0, 0]
+move(); // [0, 0]
+```
+
+上面代码中，函数move的参数是一个对象，通过对这个对象进行解构，得到变量x和y的值。如果解构失败，x和y等于默认值。
+
+注意，下面的写法会得到不一样的结果。
+[函数参数的解构使用默认值2](./函数参数的解构赋值/example04.html)
+```javascript
+function move({x, y} = { x: 0, y: 0 }) {
+  return [x, y];
+}
+
+move({x: 3, y: 8}); // [3, 8]
+move({x: 3}); // [3, undefined]
+move({}); // [undefined, undefined]
+move(); // [0, 0]
+```
+
+上面代码是为函数move的参数指定默认值，而不是为变量x和y指定默认值，所以会得到与前一种写法不同的结果。
+
+undefined就会触发函数参数的默认值。
+
+```javascript
+[1, undefined, 3].map((x = 'yes') => x);
+// [ 1, 'yes', 3 ]
+```
+
+## 6.圆括号问题
+## 7.用途
 
 [ECMAScript 6 入门教程 - 变量的解构赋值](https://es6.ruanyifeng.com/#docs/destructuring)

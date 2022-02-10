@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数参数的解构使用默认值1</title>
+</head>
+<body>
+  <script>
+    // 去除掉函数参数中等式后 = {} 会发生什么？
+    function move({x = 0, y = 0} = {}) {
+      return [x, y];
+    }
+
+    console.log(move({x: 3, y: 8})); // [3, 8]
+    console.log(move({x: 3})); // [3, 0]
+    console.log(move({})); // [0, 0]
+    console.log(move()); // [0, 0]
+  </script>
+</body>
+</html>

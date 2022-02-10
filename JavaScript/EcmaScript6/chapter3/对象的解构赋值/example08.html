@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嵌套结构的对象的解构赋值4</title>
+</head>
+<body>
+  
+  <script>
+    let obj = {};
+    let arr = [];
+  
+    // 这里为什么要圆括号包裹住呢？尝试解开会出现报错
+    // 因为{}会被解析为代码块(block)，代码块会形成各自的隔离，无法相互赋值。必须得用括号告诉解析器，{}是一个对象。
+    // 参考：https://zhuanlan.zhihu.com/p/396580889
+    ({ foo: obj.prop, bar: arr[0] } = { foo: 123, bar: true });
+
+    console.log('obj:', obj); // {prop:123}
+    console.log('arr:', arr); // [true]
+
+  </script>
+</body>
+</html>

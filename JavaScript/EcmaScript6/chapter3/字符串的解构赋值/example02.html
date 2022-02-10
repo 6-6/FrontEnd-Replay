@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串的解构赋值获取length属性</title>
+</head>
+<body>
+  上一个示例，我自定义了一个方法来实现字符串的结构赋值：<a href="./字符串的解构赋值/example01.html">字符串的解构赋值</a>
+  如果是以下这种代码如何实现呢？
+  <script>
+    function DAssignment(foo, str){
+      // 当然是new一个String构造函数，构造函数内部就已经解析每个字符了，循环中的代码也可以少写一些
+      let string = new String(str);
+      let newObject = new Object();
+      // 判断foo的类型
+      let isArray = foo instanceof Array;
+      let isBasicType = typeof foo;
+
+      if(isArray){
+        for(let i=0; i<foo.length; i++){
+          newObject[foo[i]] = string[i]
+        }
+
+        return newObject;
+      }
+      else if(isBasicType=='string'){
+        return string[foo];
+      }
+    }
+
+    console.log(DAssignment('length', 'hello'));
+
+    // 如何匹配到length呢？我们可以重写上个示例中的方法（这里不考虑太多复杂因素）
+    let {length : len} = 'hello';
+    console.log(len); // 5
+  </script>
+</body>
+</html>

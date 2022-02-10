@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值可以取到继承的属性</title>
+</head>
+<body>
+  <script>
+    const obj1 = {};
+    const obj2 = { foo: 'bar' };
+    // Object.setPrototypeOf() 方法设置一个指定的对象的原型到另一个对象
+    // 注意这里是object对象，非构造函数，无法直接使用obj1.prototype的方式赋值，否则只会被认为是一个普通的属性
+    Object.setPrototypeOf(obj1, obj2);
+
+    // 相当于让obj1对象原型prototype继承obj2对象
+    console.log('obj1:', obj1);
+    console.log('obj2:', obj2);
+
+    // 此时obj1原型对象上已经有{ foo: 'bar' }，也就是说解构赋值可以取到原型链上的属性
+    const { foo } = obj1;
+    console.log('foo:', foo); // "bar"
+
+
+  </script>
+</body>
+</html>

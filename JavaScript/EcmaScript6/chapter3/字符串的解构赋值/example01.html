@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串的解构赋值</title>
+</head>
+<body>
+  <script>
+    // 如果用自定义方法来实现字符串的解构赋值，相当于循环赋值，obj['a'] = string.substring(0,1);
+    function DAssignment(arr, str){
+      let newObject = new Object();
+
+      for(let i=0; i<arr.length; i++){
+        newObject[arr[i]] = str.substring(i,parseInt(i+1))
+      }
+
+      console.log(newObject);// {a: 'h', b: 'e', c: 'l', d: 'l', e: 'o'}
+    }
+
+    DAssignment(['a', 'b', 'c', 'd', 'e'], 'hello')
+
+    // 看看以上实现还是没有考虑太多的情况，实际情况一定会需要大量的代码支撑
+    const [a, b, c, d, e] = 'hello';
+    console.log('a:', a); // "h"
+    console.log('b:', b); // "e"
+    console.log('c:', c); // "l"
+    console.log('d:', d); // "l"
+    console.log('e:', e); // "o"
+  </script>
+</body>
+</html>
