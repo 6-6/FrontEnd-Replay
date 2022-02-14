@@ -9,20 +9,15 @@
 <body>
   <p>立即执行函数创建一个闭包，防止同名变量污染，私有化变量。</p>
   <script>
-    function outputNumbers(count){
       (function(){
-        for(var i=0; i<count; i++){
-          console.log(i);
-        }
+        var i = 2;
+        alert(i); //2
       })();
 
       (function(){
         //私有化的变量其它函数无法获取到
         alert(i); //Uncaught ReferenceError: i is not defined
       })();
-    }
-    
-    outputNumbers(3);
   </script>
 </body>
 </html>

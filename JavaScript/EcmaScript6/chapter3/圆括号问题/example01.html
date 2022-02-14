@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圆括号导致语法错误</title>
+</head>
+<body>
+  <script>
+    // vscode 代码检测已经报错 Array element destructuring pattern expected.
+    let [(a)] = [1];
+
+    let {x: (c)} = {};
+    let ({x: c}) = {};
+    let {(x: c)} = {};
+    let {(x): c} = {};
+
+    let { o: ({ p: p }) } = { o: { p: 2 } };
+  </script>
+</body>
+</html>

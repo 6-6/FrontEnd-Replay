@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>可以使用圆括号的情况</title>
+</head>
+<body>
+  <p>它们都是赋值语句，而不是声明语句；其次它们的圆括号都不属于模式的一部分。</p>
+  <script>
+    // 1.按照教程中的说法，它们都是赋值语句，默认就应该是全局变量。
+    // 2.我们将b的输出结果放在前面，会发生未定义的错误，说明没有变量提升，而且也没有形成暂时性死区。
+    // 3.其实就是等同于e这种情况，不用任何声明语句。
+
+    console.log(e);
+    e = 1;
+
+    [(b)] = [3]; // 正确
+    ({ p: (d) } = {}); // 正确
+    [(parseInt.prop)] = [3]; // 正确
+
+    console.log('b:', b);// 3
+    console.log('d:', d);// undefined
+    console.log('parseInt.prop:', parseInt.prop);// 3
+  </script>
+</body>
+</html>
