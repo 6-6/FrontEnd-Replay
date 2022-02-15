@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遍历 Map 结构</title>
+</head>
+<body>
+  <script>
+    const map = new Map();
+    map.set('first', 'hello');
+    map.set('second', 'world');
+
+    console.log(map);
+
+    // 获取键名
+    for (let [key] of map) {
+      console.log(key);// 'first','second'
+    }
+
+    // 获取键值（注意这里变量名前要加上逗号）
+    for (let [,value] of map) {
+      console.log(value);// 'hello','world'
+    }
+  </script>
+</body>
+</html>

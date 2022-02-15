@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>提取 JSON 数据</title>
+</head>
+<body>
+  <script>
+    let jsonData = {
+      id: 42,
+      status: "OK",
+      data: [867, 5309]
+    };
+
+    let { id, status, data: number } = jsonData;
+
+    console.log(id, status, number);
+    // 42, "OK", [867, 5309]
+  </script>
+</body>
+</html>

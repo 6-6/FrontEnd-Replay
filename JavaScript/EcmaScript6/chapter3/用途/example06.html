@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遍历 Map 结构</title>
+</head>
+<body>
+  <script>
+    const map = new Map();
+    map.set('first', 'hello');
+    map.set('second', 'world');
+
+    // map结构原生支持Iterator 接口，所以可以通过for of循环遍历，获取键名和键值
+    console.log(map);
+    
+    for (let [key, value] of map) {
+      console.log(key + " is " + value);
+    }
+    // first is hello
+    // second is world
+  </script>
+</body>
+</html>

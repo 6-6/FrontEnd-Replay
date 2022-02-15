@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>交换变量的值</title>
+</head>
+<body>
+  <script>
+    let x = 1;
+    let y = 2;
+
+    // 通过解构赋值，可以将 x 和 y 交换变量的值
+    [x, y] = [y, x];
+
+    console.log('x:', x);// 2
+    console.log('y:', y);// 1
+  </script>
+</body>
+</html>

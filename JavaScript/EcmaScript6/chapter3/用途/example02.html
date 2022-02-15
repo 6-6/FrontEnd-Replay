@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从函数返回多个值</title>
+</head>
+<body>
+  <script>
+    // 返回一个数组
+
+    function example1() {
+      return [1, 2, 3];
+    }
+
+    // 函数返回的是数组，所以等同于 let [a, b, c] = [1, 2, 3];
+    console.log(example1());// [1, 2, 3];
+
+    let [a, b, c] = example1();
+    console.log('a:', a);
+    console.log('b:', b);
+    console.log('c:', c);
+
+    // 返回一个对象
+    
+    function example2() {
+      return {
+        foo: 1,
+        bar: 2
+      };
+    }
+    let { foo, bar } = example2();
+  </script>
+</body>
+</html>
