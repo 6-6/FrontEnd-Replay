@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大括号正确解读Unicode表示法</title>
+</head>
+<body>
+  很好用的网站：<a href="https://unicode-table.com/cn/">Unicode 字符百科</a>
+  <script>
+    console.log("\u{20BB7}");// "𠮷"
+    
+    console.log("\u{41}\u{42}\u{43}");// "ABC"
+    
+    // 甚至可以用Unicode表示变量
+    let hello = 123;
+    console.log(hell\u{6F}); // 123
+    
+    // 如果加上双引号会变成什么？
+    console.log("hell\u{6F}"); // 没错变成字符串：hello
+
+    // 一个火箭emoji图标
+    console.log('\u{1F680}' === '\uD83D\uDE80');// true
+    
+  </script>
+</body>
+</html>

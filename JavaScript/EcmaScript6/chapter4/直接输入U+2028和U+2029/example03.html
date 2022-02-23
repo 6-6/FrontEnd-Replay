@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON.stringify()解析特殊字符</title>
+</head>
+<body>
+  <script>
+    // \uD834\uDF06是两个码点，但是必须放在一起配对使用
+    console.log(JSON.stringify('\uD834\uDF06'));// "𝌆"
+
+    // 如果将其拆开，又或者将两个码点顺序改变，
+    // JSON.Stringify()只会将其转义成普通的字符串
+    console.log(JSON.stringify('\u{D834}')); // "\ud834"
+    console.log(JSON.stringify('\uDF06\uD834')); // "\udf06\ud834"
+  </script>
+</body>
+</html>

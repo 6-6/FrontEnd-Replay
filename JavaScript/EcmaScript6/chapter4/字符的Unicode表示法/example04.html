@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unicode表示一个字符的方式</title>
+</head>
+<body>
+  <script>
+    console.log('\z' === 'z');   // true
+    console.log('\172' === 'z');  // true
+    console.log('\x7A' === 'z');  // true
+    console.log('\u007A' === 'z');  // true
+    console.log('\u{7A}' === 'z');  // true
+  </script>
+</body>
+</html>

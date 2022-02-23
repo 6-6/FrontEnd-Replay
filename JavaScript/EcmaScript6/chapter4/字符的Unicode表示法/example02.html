@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符的Unicode双字节表示法</title>
+</head>
+<body>
+  <script>
+    // 这个字并不是中文
+    console.log("\uD842\uDFB7");// "𠮷"
+    // 原文说到JavaScript 会理解成\u20BB+7。由于\u20BB是一个不可打印字符，所以只会显示一个空格，后面跟着一个7
+    // 实际上chrome 版本 98.0.4758.102 显示的是：₻7
+    console.log("\u20BB7");
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON.parse()解析特殊字符</title>
+</head>
+<script src="./example02.json"></script>
+<body>
+  <b>JavaScript 规定有5个字符，不能在字符串里面直接使用，只能使用转义形式。  </b>
+  <p>- U+005C：反斜杠（reverse solidus)</p>
+  <p>- U+000D：回车（carriage return）</p>
+  <p>- U+2028：行分隔符（line separator）</p>
+  <p>- U+2029：段分隔符（paragraph separator）</p>
+  <p>- U+000A：换行符（line feed）</p>
+
+  <script>
+    // 错误示例：在字符串中使用反斜杠就会报错
+    // console.log('\');// Uncaught SyntaxError: Invalid or unexpected token
+
+    // 正确示例：在字符串中使用转义过后的反斜杠不会有问题
+    console.log("\u005C");// 反斜杠\
+
+    let json = null;
+    // 模拟实际的请求一个json文件，看看会不会报错
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open('GET', './example02.json', true);
+    xmlHttp.send();
+
+    xmlHttp.onreadystatechange=function(){
+      if (xmlHttp.readyState==4 && xmlHttp.status==200)
+      {
+        // 1.直接输出返回的结果不会报错，说明json格式也是支持转义过后的反斜杠
+        console.log(xmlHttp.responseText);
+
+        // 2.JSON.parse()方法也可以顺利解析，ES2019修复了这个问题
+        json = JSON.parse(xmlHttp.responseText);// [{str: "\\"}]
+        console.log(json);
+      }
+    }
+
+
+  </script>
+</body>
+</html>

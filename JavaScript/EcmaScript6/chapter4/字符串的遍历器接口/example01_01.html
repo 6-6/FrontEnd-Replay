@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遍历特殊字符</title>
+</head>
+<body>
+  <script>
+    //这里是字符串'hello' + 火箭emoji的图案
+    let str = 'hello\u{1F680}';
+    for (let codePoint of str) {
+      // 通过es6的 for of语句，输出的结果可以顺利遍历出来每一个字符
+      console.log(codePoint);
+    }
+
+    // 通过for循环，火箭图案变为了乱码，这是为什么呢？
+    for(let i = 0; i < str.length; i++){
+      console.log(str[i]);
+    }
+
+    // 输出String构造函数的实例，可以很清楚看到火箭图案被分割为"\uD83D" 和 "\uDE80"两个字符分别在索引5、6
+    let newStr = new String('hello\u{1F680}');
+    console.log(newStr);
+  </script>
+</body>
+</html>

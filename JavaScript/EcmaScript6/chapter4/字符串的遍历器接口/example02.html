@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for和for of遍历字符串</title>
+</head>
+<body>
+  <script>
+    // String.fromCodePoint() 静态方法返回使用指定的 代码点序列 创建的字符串。
+    let text = String.fromCodePoint(0x20BB7);
+    for (let i = 0; i < text.length; i++) {
+      // 传统的for循环只会输出两个乱码，请看上一节的example01_01.html示例
+      console.log(text[i]);
+    }
+
+    // 用ES6的for of语句，可以正常识别为一个字符
+    for (let i of text) {
+      console.log(i);// "𠮷"
+    }
+    
+  </script>
+</body>
+</html>

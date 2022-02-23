@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串的遍历器接口</title>
+</head>
+<body>
+  分支问题：如果将字符串换为<a href="./example01_01.html">遍历特殊字符</a>呢？
+  <script>
+    let str = 'foo';
+    for (let codePoint of str) {
+      console.log(codePoint);
+      // "f"
+      // "o"
+      // "o"
+    }
+
+    // 还记得String类型的构造函数吗？字符串可以通过数组索引的方式截取某个字符
+    for(let i = 0; i < str.length; i++){
+      console.log(str[i]);
+    }
+  </script>
+</body>
+</html>
