@@ -152,13 +152,32 @@ $('#result').append(
 
 上面这种写法相当繁琐不方便，ES6 引入了模板字符串解决这个问题。
 
-[模板字符串示例](./模板字符串/example01.html)
+[模板字符串示例1](./模板字符串/example01.html)
 ```javascript
 $('#result').append(`
   There are <b>${basket.count}</b> items
    in your basket, <em>${basket.onSale}</em>
   are on sale!
 `);
+```
+
+模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
+
+[模板字符串示例2](./模板字符串/example02.html)
+```javascript
+// 普通字符串
+`In JavaScript '\n' is a line-feed.`
+
+// 多行字符串
+`In JavaScript this is
+ not legal.`
+
+console.log(`string text line 1
+string text line 2`);
+
+// 字符串中嵌入变量
+let name = "Bob", time = "today";
+`Hello ${name}, how are you ${time}?`
 ```
 ## 6.实例：模板编译
 ## 7.标签模板
