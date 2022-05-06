@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>浅拷贝对象</title>
+</head>
+<body>
+  <script>
+    let obj1 = {
+        name : 't',
+        arr : [1,[2,3],4],
+    };
+
+    // 通过浅拷贝将obj1复制到obj2
+    let obj2 = shallowClone(obj1)
+
+    // 这是个浅拷贝的方法
+    function shallowClone(target) {
+      let cloneTarget = {};
+      for (const key in target) {
+          cloneTarget[key] = target[key];
+      }
+      return cloneTarget;
+    }
+
+    // 尝试改变复制后的数据obj2
+    // 改变基础数据类型，不影响原有数据
+    obj2.name = "t1";
+    // 直接替换一个新的数组，栈内存的指针指向了，新的内存空间
+    // obj2.arr = [5,6,7] ; 
+
+    // 试想一下，cloneTarget[1] = [1,[2,3],4]
+    // 本质上是赋值操作，obj2.arr和obj1.arr指向同一个对象，所以改动其子对象，源数据也会发生改变
+    obj2.arr[1] = [5,6,7] ; 
+    
+    console.log('obj1',obj1) // obj1 { name: 't', arr: [ 1, [ 5, 6, 7 ], 4 ] }
+    console.log('obj2',obj2) // obj2 { name: 't1', arr: [ 1, [ 5, 6, 7 ], 4 ] }
+  </script>
+</body>
+</html>

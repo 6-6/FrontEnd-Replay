@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深拷贝1-简单版</title>
+</head>
+<body>
+  <script>
+    function clone(target) {
+        if (typeof target === 'object') {
+            let cloneTarget = {};
+            for (const key in target) {
+                cloneTarget[key] = clone(target[key]);
+            }
+            return cloneTarget;
+        } else {
+            return target;
+        }
+    };
+
+    const target = {
+      field1: 1,
+      field2: undefined,
+      field3: {
+          child: 'child'
+      },
+      field4: [2, 4, 8]
+    };
+
+    console.log(clone(target));
+  </script>
+</body>
+</html>

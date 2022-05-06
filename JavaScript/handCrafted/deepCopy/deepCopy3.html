@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深拷贝-循环引用</title>
+</head>
+<body>
+  <script>
+    function clone(target, map = new Map()) {
+        if (typeof target === 'object') {
+            let cloneTarget = Array.isArray(target) ? [] : {};
+            console.log(map.get(target));
+            if (map.get(target)) {
+                return map.get(target);
+            }
+            map.set(target, cloneTarget);
+            for (const key in target) {
+                cloneTarget[key] = clone(target[key], map);
+            }
+            return cloneTarget;
+        } else {
+            return target;
+        }
+    };
+
+
+    const target = {
+      field1: 1,
+      field2: undefined,
+      field3: {
+          child: 'child'
+      },
+      field4: [2, 4, 8]
+    };
+    target.target = target
+    
+    console.log(clone(target));
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON.parse(JSON.stringify())深克隆的问题</title>
+</head>
+<body>
+  <script>
+    function Person (name) {
+      this.name = name;
+    }
+
+    function Child (age) {
+      Person.call(this, 'lili');
+    }
+
+    let child = new Child();
+
+    let a = {
+      data0: '1', // 普通的字符串转换没问题
+      date1: [new Date('2020-03-01'), new Date('2020-03-05')], // Date对象转换后，变成了字符串
+      data2: new RegExp('\\w+'), //RegExp对象，变为了空对象
+      data3: new Error('1'), //Error对象，变为了空对象
+      data4: undefined, // undefined类型丢失
+      data5: function () { // Function类型丢失
+        console.log(1)
+      },
+      data6: NaN, // 特殊数值NaN变为了null
+      data7: child // 构造函数变为了新的对象，丢失了原有的原型链
+    }
+
+    let b = JSON.parse(JSON.stringify(a))
+
+    // 输出结果可以看出，JSON.parse(JSON.stringify())，对复杂数据类型和构造函数出现许多问题
+    // 
+    console.log(b);
+    /*
+    data0: "1"
+    data2: {} 
+    data3: {}
+    data6: null
+    data7: {name: 20}
+    date1: (2) ['2020-03-01T00:00:00.000Z', '2020-03-05T00:00:00.000Z'] 
+    */
+  </script>
+</body>
+</html>
