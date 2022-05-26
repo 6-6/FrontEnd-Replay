@@ -1,6 +1,0 @@
-[submodule "Vue/vue-source-learning"]
-	path = Vue/vue-source-learning
-	url = https://github.com/vuejs/vue.git
-[submodule "Vue/vue-source-learning/vue"]
-	path = Vue/vue-source-learning/vue
-	url = https://github.com/vuejs/vue.git
