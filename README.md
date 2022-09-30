@@ -48,6 +48,8 @@
 * [一文搞懂Javascript中的函数柯里化（函数柯里化用法和优点）](https://zhuanlan.zhihu.com/p/120735088)
 * [后端一次给你 10 万条数据，如何优雅展示，到底考察我什么?](https://mp.weixin.qq.com/s/a9Cso_nXjLeacilF1rs4zA)
 * [厉害！这篇正则表达式竟写的如此详尽](https://mp.weixin.qq.com/s/otpS-TtqK1edSmHJJTdnFA)
+* [一文带你了解如何排查内存泄漏导致的页面卡顿现象](https://mp.weixin.qq.com/s/Tyz48cCsbUE2z0Ff_8K0Mg)
+* [Meta开源MemLab：轻松解决JavaScript内存泄漏，有效减少50%的系统崩溃](https://mp.weixin.qq.com/s/7GddW4XChL4kPk-cC7Dx3g)
 
 ### Vue
 * [Virtual DOM 和 diff 算法](https://juejin.cn/post/6990582632270528525?share_token=b28b3faf-0139-442e-a297-cfe6b32e09d4)
