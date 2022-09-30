@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改变constructor()方法默认返回的值</title>
+</head>
+<body>
+  <script>
+    // 类默认会添加constructor()函数
+    class Point {}
+    // new生成实例对象，会调用constructor()函数
+    var point = new Point();
+    // 简单来说实例对象point的值，就是constructor()函数返回的this对象
+    console.log(point);
+
+    
+    // 改变constructor()默认返回的this对象，是不是就会改变实例对象的结果？
+    class Foo {
+      constructor() {
+        // 返回一个“纯净”对象，即不继承任何对象的Object
+        return Object.create(null);
+      }
+    }
+
+    var foo = new Foo();
+
+    // 已知instanceof用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。（对象是否为为该构造函数派生。）
+
+    // 因为已经改变了constructor()返回的对象，所以在实例对象原型链上找不到构造函数Foo，为false
+    console.log(foo);
+    console.log(foo instanceof Foo);
+  </script>
+</body>
+</html>

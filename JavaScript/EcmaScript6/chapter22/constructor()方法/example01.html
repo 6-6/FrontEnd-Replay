@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>默认添加的constructor()方法</title>
+</head>
+<body>
+  <script>
+    // 即使未声明constructor()函数，类也是会自动生成该函数
+    class Point {
+
+    }
+
+    // es5的构造函数也会自动生成constructor()函数
+    function Person() {}
+
+    var p = new Point();
+    var person = new Person();
+
+    console.log(Point.prototype.constructor);
+    console.log(Person.prototype.constructor);
+
+  </script>
+</body>
+</html>

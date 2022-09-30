@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class创建构造函数</title>
+</head>
+<body>
+  <script>
+    class Point {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+
+      toString() {
+        return this.x + ',' + this.y;
+      }
+    }
+
+    var p = new Point(1, 2);
+    console.log(p.toString());
+    // 结果为 function 说明是类就是函数类型，可以理解类为语法糖形式的构造函数
+    console.log(typeof Point);
+    // 结果为true再次验证了，类指向了构造函数的事实 
+    console.log(Point === Point.prototype.constructor);
+  </script>
+</body>
+</html>

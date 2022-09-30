@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不可枚举类的属性</title>
+</head>
+<body>
+  <script>
+    // 类的原型链对象，即构造函数内的属性，是不可枚举的
+    class Point {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+
+      toString(){
+        return this.x + ',' + this.y
+      }
+    }
+
+    // 看看es5写法的构造函数
+    function Person(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    Person.prototype.toString = function(){
+      return this.x + ',' + this.y
+    }
+
+    // getOwnPropertyNames()返回对象的所有自身属性的属性名（包括不可枚举的对象）
+    console.log(Object.getOwnPropertyNames(Point.prototype));
+    
+    // Object.keys()则无法枚举原型链对象
+    console.log(Object.keys(Point.prototype));
+        
+    // es5写法的构造函数，可以正常枚举原型链对象
+    console.log(Object.keys(Person.prototype));
+  </script>
+</body>
+</html>
