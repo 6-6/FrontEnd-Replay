@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类必须用new来调用</title>
+</head>
+<body>
+  <script>
+    class Foo {
+      constructor() {
+        return Object.create(null);
+      }
+    }
+
+    // 会报错，类必须要new来调用，这就是与普通构造函数的区别之一
+    Foo()
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>为什么需要`_classCallCheck();`函数</title>
+</head>
+<body>
+  <script>    
+    var Point = /*#__PURE__*/ (function () {
+      "use strict";
+      function Point(x, y) {
+        // 我们知道this指向调用的环境，再加上用了严格模式，所以this指向为undefined
+        console.log(this);
+
+        // 这样就以下就无法正常赋值了
+        this.x = x;
+        this.y = y;
+      }
+
+      return Point;
+    })();
+
+    console.log(Point(1, 2));
+  </script>
+</body>
+</html>

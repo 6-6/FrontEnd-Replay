@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>为什么需要`_defineProperties();`函数</title>
+  </head>
+  <body>
+    <script>
+      // 块级作用域
+      var Point = /*#__PURE__*/ (function () {
+        "use strict";
+        function Point(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+
+        return Point;
+      })();
+
+      /**
+       * 描述：给原型对象添加新属性
+       * @param {Function} target
+       * @param {Array} props
+       */
+      function _defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+          var descriptor = props[i]
+          // [[enumerable]]为false，为什么类要定义的属性是不可枚举的呢？
+          descriptor.enumerable = descriptor.enumerable || false
+          // [[configurable]]能否可以删除或修改属性
+          descriptor.configurable = true
+          // 判断是否有key值为"value"，[[writable]]是否是可以写入或只读
+          if ('value' in descriptor) descriptor.writable = true
+          
+          console.log(descriptor);
+          // 最终使用defineProperty()给Point的原型对象定义一个新属性
+          Object.defineProperty(target, descriptor.key, descriptor)
+        }
+      }
+
+      // 为什么要这么写？
+      // 很明显很可能类需要定义多个属性，所以需要循环所有的属性进行定义
+      _defineProperties(Point.prototype, [
+        {
+          key: "toString",
+          value: function toString() {
+            return this.x + "," + this.y;
+          }
+        }
+      ]);
+
+      // 可以正常调用toString()了
+      console.log(new Point(1,2).toString());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类的属性和方法</title>
+</head>
+<body>
+  <script>
+    class Point {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+
+      toString() {
+        return this.x + ',' + this.y;
+      }
+    }
+
+    var point = new Point(1, 2);
+
+    // 已知类的实例默认值，是constructor()函数返回的this对象
+    // 'x' 和 'y' 都在constructor()当中赋值给 this 对象
+    console.log(point.hasOwnProperty('x'));
+    console.log(point.hasOwnProperty('y'));
+
+    // 而toString()函数是定义在Class当中的，实际上就是定义在Point.prototype原型对象上
+    console.log(point.hasOwnProperty('toString'));
+    // 通过__proto__属性，访问原型属性对象即 Point.prototype
+    console.log(point.__proto__.hasOwnProperty('toString'));
+
+    // 通过实例对象point，都可以访问 x , y
+    console.log(point.x);
+    console.log(point.y);
+    // 而 toString()也可以访问，这又是为什么呢？因为类的属性或函数，不定义在this对象，则定义在原型上。
+    // 但... 为什么？
+    console.log(point.toString());
+  </script>
+</body>
+</html>
