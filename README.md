@@ -10,13 +10,13 @@
 ## 一、导航目录
 
 ### FrontEnd-Replay Browser-浏览器篇
-[浏览器从输入URL到看到页面发生了什么？](Browser/browserParsingThePage/README.md)
-[如何分辨IP是公网IP还是内网IP？](Browser/browserParsingThePage/README.md)
-[浏览器缓存](Browser/browserCache/README.md)
+* [浏览器从输入URL到看到页面发生了什么？](Browser/browserParsingThePage/README.md)
+* [如何分辨IP是公网IP还是内网IP？](Browser/browserParsingThePage/README.md)
+* [浏览器缓存](Browser/browserCache/README.md)
 
 ### FrontEnd-Replay Html篇
-[页面引入样式，使用link和@import有什么区别？](HTML/1/README.md)
-[import 和 require 导入的区别](HTML/2/README.md)
+* [页面引入样式，使用link和@import有什么区别？](HTML/1/README.md)
+* [import 和 require 导入的区别](HTML/2/README.md)
 
 ## 二、收藏链接
 ### 面试题
