@@ -5,9 +5,16 @@
 
 有大量的知识点都是网上摘抄，所以更加需要去辨别知识点的正确性。知识点是非常容易忘记的，所以会以容易理解方式去总结。
 
+## 一、计划
+### 当前计划
+1. 脚手架相关（3月~4月）
+1. Promise专题（4月~5月）
 
-
-## 一、导航目录
+### 计划清单
+1. Vue相关
+1. JavaScript相关
+1. TypeScript相关
+## 二、导航目录
 
 ### FrontEnd-Replay Browser-浏览器篇
 * [浏览器从输入URL到看到页面发生了什么？](Browser/browserParsingThePage/README.md)
@@ -18,7 +25,7 @@
 * [页面引入样式，使用link和@import有什么区别？](HTML/1/README.md)
 * [import 和 require 导入的区别](HTML/2/README.md)
 
-## 二、收藏链接
+## 三、收藏链接
 ### 面试题
 * [前端面试每日3+1](http://www.h-camel.com/)
 * [Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md)
@@ -66,6 +73,9 @@
 
 ### 版本控制
 * [Learn Git Branching 小游戏](https://learngitbranching.js.org/?locale=zh_CN)
+
+### TypeScript
+* [重学 TS](https://zhuanlan.zhihu.com/p/614782362)
 
 ### 文档教程
 * [现代 JavaScript 教程](https://zh.javascript.info/)
