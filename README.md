@@ -41,9 +41,8 @@
 * [垂直居中方案](Styles/垂直居中/README.md)
 
 ### FrontEnd-Replay Performance篇
-
-[Performance 工具篇](Performance/devTools/performance/README.md)
-[vue性能优化及原理](Performance/vue-9-perf-secrets/article/vue-perf.md)
+* [Performance 工具篇](Performance/devTools/performance/README.md)
+* [vue性能优化及原理](Performance/vue-9-perf-secrets/article/vue-perf.md)
 ## 三、收藏链接
 ### 面试题
 * [前端面试每日3+1](http://www.h-camel.com/)
