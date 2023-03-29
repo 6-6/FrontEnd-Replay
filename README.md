@@ -7,8 +7,11 @@
 
 ## 一、计划
 ### 当前计划
-1. 脚手架相关（3月~4月）
-1. Promise专题（4月~5月）
+（3月~4月）
+1. 脚手架相关
+1. 性能优化
+    1. performance
+1. Promise专题
 
 ### 计划清单
 1. Vue相关
@@ -20,11 +23,27 @@
 * [浏览器从输入URL到看到页面发生了什么？](Browser/browserParsingThePage/README.md)
 * [如何分辨IP是公网IP还是内网IP？](Browser/browserParsingThePage/README.md)
 * [浏览器缓存](Browser/browserCache/README.md)
-
+### FrontEnd-Replay DesignPattern-设计模式篇
+* [JavaScript设计模式实践](DesignPattern/DesignPatternInPratice/README.md)
+### FrontEnd-Replay FEE-工程化篇
+* [import 和 require 导入的区别？](FEE\importAndRequire\README.md)
+* [命名规范](FEE\规范文档\前端开发规范.md)
+* [搭建脚手架 cli](FEE\my-node-cli\articles\README.md)
+ 
 ### FrontEnd-Replay Html篇
 * [页面引入样式，使用link和@import有什么区别？](HTML/1/README.md)
-* [import 和 require 导入的区别](HTML/2/README.md)
+* [HTML5有哪些新特性？](HTML/3/README.md)
+### FrontEnd-Replay JavaScript篇
+* [闭包了解吗？说说它的原理和使用场景](JavaScript/closure/README.md)
+* [JavaScript中的数据类型有哪些？](JavaScript/3/README.md)
+### FrontEnd-Replay Styles篇
+* [BFC](Styles\BFC\readme.md)
+* [垂直居中方案](Styles\垂直居中\README.md)
 
+### FrontEnd-Replay Performance篇
+
+[Performance 工具篇](Performance\devTools\performance\README.md)
+[vue性能优化及原理](Performance\vue-9-perf-secrets\article\vue-perf.md)
 ## 三、收藏链接
 ### 面试题
 * [前端面试每日3+1](http://www.h-camel.com/)
