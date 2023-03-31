@@ -43,15 +43,16 @@
 ### FrontEnd-Replay Performance篇
 * [Performance 工具篇](Performance/devTools/performance/README.md)
 * [vue性能优化及原理](Performance/vue-9-perf-secrets/article/vue-perf.md)
-## 三、收藏链接
+## 三、好文收藏
 ### 面试题
 * [前端面试每日3+1](http://www.h-camel.com/)
 * [Daily-Interview-Question](https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md)
 * [最新的前端大厂面经（详解答案）](https://juejin.cn/post/7004638318843412493?share_token=f65e6692-0418-455d-b985-35a4301e8ea7)
 * [前端经典面试题60道，附答案！](https://mp.weixin.qq.com/s/eDwhUgA08YU8j122EZozRA)
 
-### 架构设计
+### 设计模式
 * [掌握设计原则，你就是光！（这 25 个问题，你会几个？）](https://mp.weixin.qq.com/s/zlnv4r3neW1SSghznHOBig)
+* [全新的 React 组件设计理念 Headless UI](https://juejin.cn/post/7160223720236122125)
 
 ### 工程化
 * [聊聊CommonJS与ES6 Module的使用与区别：](https://mp.weixin.qq.com/s/1wUU-i3W4RlR2hf86lZqEA)
@@ -64,11 +65,11 @@
 * [如何解决移动端 Retina 屏 1px 像素问题 ？](https://mp.weixin.qq.com/s/TdBboawwkzopR-8Y5Bw5pA)
 
 ### JavaScript
-* [现代 JavaScript 教程](https://zh.javascript.info/]
+* [现代 JavaScript 教程](https://zh.javascript.info/)
 * [几个优雅的 JavaScript 运算符使用技巧：](https://mp.weixin.qq.com/s/FwF_awtPQAgXQYs1SWcDfw)
 * [「硬核JS」你的程序中可能存在内存泄漏](https://juejin.cn/post/6984188410659340324?share_token=ec1497f8-263e-4da4-8222-a6e05e86c329)
 * [【今天你更博学了么】一个神奇的前端动画 API（了解requestAnimationFrame）](https://juejin.cn/post/6991297852462858277?share_token=ee794cb0-fb56-41ba-a3a7-79a6b1f65eb5)
-* [JS数组循环的性能和效率分析（for、while、forEach、map、for of）](https://juejin.cn/post/6844903651232710670]
+* [JS数组循环的性能和效率分析（for、while、forEach、map、for of）](https://juejin.cn/post/6844903651232710670)
 * [轻松理解JS 原型原型链](https://juejin.cn/post/6844903989088092174)
 * [一文搞懂Javascript中的函数柯里化（函数柯里化用法和优点）](https://zhuanlan.zhihu.com/p/120735088)
 * [后端一次给你 10 万条数据，如何优雅展示，到底考察我什么?](https://mp.weixin.qq.com/s/a9Cso_nXjLeacilF1rs4zA)
@@ -84,7 +85,7 @@
 ### NODE.JS
 * [Node.js 底层原理](https://mp.weixin.qq.com/s/AgUHQUeJUm-uDV35xiMlcg)
 
-### 调试测试
+### debug & test
 * [前端 debug 的奇淫技巧](https://juejin.cn/post/6992024002113847332?share_token=b8096690-8e6a-47f0-8a4b-419aa5fd2db1)
 * [前端测试之Jest深入浅出](https://juejin.cn/post/6844904196244766728)
 * [单元测试从零开始，包含 Vue 及 React 项目中该如何单测](https://juejin.cn/post/6844904018129453070)
